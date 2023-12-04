@@ -3,12 +3,12 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDxPcnzzWc5BVZQqCgNJUSZtgo3L71o3ZM',
-  authDomain: 'mymoney-drv98.firebaseapp.com',
-  projectId: 'mymoney-drv98',
-  storageBucket: 'mymoney-drv98.appspot.com',
-  messagingSenderId: '715620903888',
-  appId: '1:715620903888:web:2edc236f37d8fe059f67d5',
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 //본인 계정의 키등 설정값을 가지고 초기화
