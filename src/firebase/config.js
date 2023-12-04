@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const firedb = firebase.firestore();
 // 인증 서비스
 const fireauth = firebase.auth();
-// 시간
-const timestamp = firedb.firestore.Timestamp;
+// DB날짜시간
+const timestamp = firebase.firestore.Timestamp;
 
 export { firedb, fireauth, timestamp };
