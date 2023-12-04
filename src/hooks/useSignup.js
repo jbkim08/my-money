@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { fireauth } from '../firebase/config';
+import { useAuthContext } from './useAuthContext';
 
 export const useSignup = () => {
   const [error, setError] = useState();
   const [isPending, setIsPending] = useState(false);
+  const { dispatch } = useAuthContext();
 
   const signup = async (email, password, displayName) => {
     setError(null);
@@ -19,6 +21,9 @@ export const useSignup = () => {
       }
       // 유저 프로파일에 이름을 업데이트
       await res.user.updateProfile({ displayName: displayName });
+
+      //유저 정보를 state에 저장한다.
+      dispatch({ type: 'LOGIN', payload: res.user });
 
       setError(null);
       setIsPending(false);
