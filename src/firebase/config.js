@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDxPcnzzWc5BVZQqCgNJUSZtgo3L71o3ZM',
@@ -13,7 +14,9 @@ const firebaseConfig = {
 //본인 계정의 키등 설정값을 가지고 초기화
 firebase.initializeApp(firebaseConfig);
 
-//파이어스토어 DB 서비스
+// 파이어스토어 DB 서비스
 const firedb = firebase.firestore();
+// 인증 서비스
+const fireauth = firebase.auth();
 
-export { firedb };
+export { firedb, fireauth };
