@@ -1,16 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useFirestore } from '../../hooks/useFireStore';
 
-export default function TransactionForm() {
+export default function TransactionForm({ uid }) {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
+  const { addDocument, response } = useFirestore('transactions');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
+    addDocument({
+      uid,
       name,
       amount,
     });
   };
+
+  //db에 새문서 저장후 폼 내용 없애기
+  useEffect(() => {
+    if (response.success) {
+      setName('');
+      setAmount('');
+    }
+  }, [response.success]);
 
   return (
     <div>
